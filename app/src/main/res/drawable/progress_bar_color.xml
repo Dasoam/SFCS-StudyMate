@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!-- res/drawable/progress_bar_border.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- Background (empty space inside) -->
+<item android:right="3dp" android:left="3dp" android:top="3dp" android:bottom="3dp">
+    <shape>
+        <solid android:color="@android:color/transparent" /> <!-- Transparent inside -->
+        <corners android:radius="10dp" /> <!-- Rounded corners -->
+    </shape>
+</item>
+
+<!-- Border -->
+<item android:right="3dp" android:left="3dp" android:top="3dp" android:bottom="3dp">
+    <shape>
+        <stroke android:color="@color/black" android:width="4dp" /> <!-- Border color -->
+        <corners android:radius="20dp" /> <!-- Rounded corners -->
+    </shape>
+</item>
+</layer-list>

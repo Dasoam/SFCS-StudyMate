@@ -1,0 +1,58 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <string name="app_name">SFCS StudyMate</string>
+    <string name="ut1_link"> https://drive.google.com/drive/folders/1NqjWWsOmJ0xdMHtH0LChYCYSVmqmEREw?usp=sharing </string>
+    <string name="ut2_link"> https://drive.google.com/drive/folders/1r5EBj-it8Dg_yZLwWU4DQi-KICV8lwMI?usp=sharing </string>
+    <string name="halfYearly_exam_link"> https://drive.google.com/drive/folders/1Z76BWxgffOdCRbnulwBiZdPdLnZz1NjY?usp=sharing </string>
+    <string name="annual_exam_link"> https://drive.google.com/drive/folders/1-Q0Fy2jz_4EP6-6iEWoVCV1ip1l9OjMT?usp=sharing </string>
+
+    <string name="rate_us"> https://play.google.com/store/apps/developer?id=DA+DashTech </string>
+    <string name="support_form"> https://forms.gle/Mmigjq1TXnKYAMwe9 </string>
+    <string name="deactivate_account_form"> https://forms.gle/5jqXQC6xudSx9Mak7 </string>
+
+    <!--    <string name="profile_about_us_desc">-->
+    <!--    SFCS Notes, a part of DadashTech, is designed to simplify learning for students by providing all educational resources in one convenient place. Initially catering to SFCS school students with a collection of previous year questions (PYQs), our app aims to grow and reach students from other schools as well.-->
+
+    <!--    With an easy-to-use and interactive interface, SFCS Notes brings together essential resources to support academic success. Our mission is to provide a comprehensive learning platform, and our vision is to make education accessible and efficient for every student.-->
+
+    <!--    Looking ahead, we plan to introduce exciting features such as quizzes, books, detailed notes, recorded lectures, YouTube videos on various topics, exam results, parent feedback, and much more. Our goal is to continuously enhance the learning experience for students while fostering a supportive environment.-->
+
+    <!--    SFCS Notes is driven by a dedicated two-person team passionate about education and technology. We also offer user support to ensure our platform meets your needs and expectations.-->
+
+    <!--    Join us on this journey as we strive to redefine the way students learn and grow. Together, let’s build a brighter academic future.-->
+    <!--</string>-->
+
+    <!--    <string name="about_us_desc_2">-->
+    <!--    SFCS Notes, developed by DadashTech, is your ultimate learning companion, designed to simplify education by bringing all essential resources together in one place. Initially tailored for SFCS school students with a rich collection of previous year questions (PYQs), our vision extends beyond to support learners from various schools and academic backgrounds.-->
+
+    <!--    With an intuitive and interactive interface, SFCS Notes ensures students have seamless access to the tools they need for success. Our mission is to provide a holistic learning platform that empowers students and makes education more accessible, efficient, and enjoyable.-->
+
+    <!--    Exciting enhancements are on the horizon! Future updates will include quizzes, e-books, comprehensive notes, recorded lectures, curated YouTube videos, exam results, parental feedback systems, and much more. These features are designed to transform SFCS Notes into an all-encompassing educational hub.-->
+
+    <!--    We’re committed to redefining the learning experience, providing unwavering support, and fostering academic growth. Together, let's shape a brighter, more successful future for students everywhere.-->
+    <!--</string>-->
+
+    <string-array name="class_options">
+        <item android:enabled="false">Select Class</item>
+        <item>1st</item>
+        <item>2nd</item>
+        <item>3rd</item>
+        <item>4th</item>
+        <item>5th</item>
+        <item>6th</item>
+        <item>7th</item>
+        <item>8th</item>
+        <item>9th</item>
+        <item>10th</item>
+    </string-array>
+    <string name="AdMob_app_ID"> ca-app-pub-2799673948713485~6387994152 </string>
+    <string name="pyq_banner">ca-app-pub-2799673948713485/2800102931</string>
+    <string name="pyq_Interstitial">ca-app-pub-2799673948713485/3923852032</string>
+
+    <string name="sample_ad"> ca-app-pub-3940256099942544~3347511713 </string>
+    <string name="sampleBanner">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="sample_Interstitial">ca-app-pub-3940256099942544/1033173712</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_notification_channel_id"></string>
+<!--    <string name="contact_us"><u>Contact Us</u></string>-->
+</resources>

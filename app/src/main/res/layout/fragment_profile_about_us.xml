@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#0A121C"
+    tools:context=".User_Profile.profile_about_us">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingVertical="40dp"
+        android:gravity="center_horizontal">
+
+        <!-- Profile Image -->
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/dadashtech"
+            android:contentDescription="Profile Image"
+            android:scaleType="centerCrop"
+            android:background="@color/white" />
+
+        <!-- About Us Title -->
+        <TextView
+            android:id="@+id/about_us_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Us"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_marginBottom="8dp"
+            android:textColor="#FFFFFF" />
+
+        <!-- Description -->
+        <TextView
+            android:id="@+id/about_us_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SFCS Notes, developed by DadashTech, is your ultimate learning companion, designed to simplify education by bringing all essential resources together in one place. Initially tailored for SFCS school students with a rich collection of previous year questions (PYQs), our vision extends beyond to support learners from various schools and academic backgrounds.\n
+    \n
+    With an intuitive and interactive interface, SFCS Notes ensures students have seamless access to the tools they need for success. Our mission is to provide a holistic learning platform that empowers students and makes education more accessible, efficient, and enjoyable.\n
+    \n
+    Exciting enhancements are on the horizon! Future updates will include quizzes, e-books, comprehensive notes, recorded lectures, curated YouTube videos, exam results, parental feedback systems, and much more. These features are designed to transform SFCS Notes into an all-encompassing educational hub.\n
+    \n
+    We’re committed to redefining the learning experience, providing unwavering support, and fostering academic growth. Together, let's shape a brighter, more successful future for students everywhere.
+"
+            android:lineSpacingExtra="4dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="10dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFFFFF" />
+
+        <!-- Contact Information -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/contact_info_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact Us"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins"
+                android:layout_marginBottom="8dp"
+                android:textColor="#FFFFFF" />
+
+            <!-- Email -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:padding="0dp"
+                    android:src="@drawable/email_dark"
+                    android:background="@color/white"
+                    android:contentDescription="Email Icon"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/contact_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="dadashtech.care@gmail.com"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <!-- Phone -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/phone"
+                    android:background="@color/white"
+                    android:contentDescription="Phone Icon"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/contact_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not available."
+                    android:textSize="16sp"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
