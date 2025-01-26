@@ -20,9 +20,15 @@
         <item>9th</item>
         <item>10th</item>
     </string-array>
-    <string name="AdMob_app_ID"> ca-app-pub-2799673948713485~6387994152 </string>
-    <string name="pyq_banner">ca-app-pub-2799673948713485/2800102931</string>
-    <string name="pyq_Interstitial">ca-app-pub-2799673948713485/3923852032</string>
+<<<<<<< HEAD
+    <string name="AdMob_app_ID">  </string>
+    <string name="pyq_banner"></string>
+    <string name="pyq_Interstitial"></string>
+=======
+
+
+
+>>>>>>> b75ce736f82757c21032afb0bc0bff9087861925
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="default_notification_channel_id"></string>
 </resources>
