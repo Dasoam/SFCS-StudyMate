@@ -44,9 +44,7 @@
         <item>9th</item>
         <item>10th</item>
     </string-array>
-    <string name="AdMob_app_ID"> ca-app-pub-2799673948713485~6387994152 </string>
-    <string name="pyq_banner">ca-app-pub-2799673948713485/2800102931</string>
-    <string name="pyq_Interstitial">ca-app-pub-2799673948713485/3923852032</string>
+
 
     <string name="sample_ad"> ca-app-pub-3940256099942544~3347511713 </string>
     <string name="sampleBanner">ca-app-pub-3940256099942544/9214589741</string>
