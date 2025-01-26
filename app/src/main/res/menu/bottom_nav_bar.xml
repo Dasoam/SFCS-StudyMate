@@ -4,10 +4,10 @@
         android:title="Home"
         android:tint="@null"
         android:fontFamily="monospace"
-        android:icon="@drawable/home_house" />
+        android:icon="@drawable/nav_home_house" />
     <item android:id="@+id/navbar_user_account_button"
         android:title="Account"
         android:tint="@null"
         android:fontFamily="monospace"
-        android:icon="@drawable/account_management" />
+        android:icon="@drawable/nav_account_management" />
 </menu>

@@ -19,7 +19,6 @@
             android:layout_gravity="center"
             android:padding="24dp">
 
-            <!-- Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -31,7 +30,6 @@
                 android:textSize="26sp"
                 android:textStyle="bold" />
 
-            <!-- Subtitle -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,7 +41,6 @@
                 android:textColor="#878282"
                 android:textSize="16sp" />
 
-            <!-- New Email Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,7 +53,6 @@
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
-            <!-- New Email Field -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,7 +72,6 @@
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Password Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -89,7 +84,6 @@
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
-            <!-- Password Field -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -111,7 +105,6 @@
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Warning Text -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -123,7 +116,6 @@
                 android:textSize="14sp"
                 android:textStyle="italic" />
 
-            <!-- Countdown Timer -->
             <TextView
                 android:id="@+id/countdownTextView"
                 android:layout_width="wrap_content"
@@ -136,7 +128,6 @@
                 android:text="Time left: "
                 android:visibility="gone" />
 
-            <!-- Resend Button -->
             <Button
                 android:id="@+id/resend_email_button"
                 android:layout_width="match_parent"
@@ -150,7 +141,6 @@
                 android:textColor="#FFFFFF"
                 android:visibility="gone" />
 
-            <!-- Confirm Button -->
             <Button
                 android:id="@+id/confirm_email_change_button"
                 android:layout_width="match_parent"
@@ -166,7 +156,6 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- ProgressBar -->
     <ProgressBar
         android:id="@+id/ChangeEmail_progressBar"
         android:layout_width="wrap_content"

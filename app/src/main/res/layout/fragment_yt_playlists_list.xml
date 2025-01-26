@@ -2,60 +2,54 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".YT_Playlist.yt_playlists_list_fragment">
 
-    <!-- LinearLayout to align the ImageView, TextView, and ProgressBar vertically -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- ImageView above the message -->
         <ImageView
             android:id="@+id/yt_list_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/coding"
+            android:layout_marginBottom="24dp"
             android:contentDescription="Working Icon"
-            android:layout_marginBottom="24dp" />  <!-- Margin between image and text -->
+            android:src="@drawable/yt_coding" />
 
-        <!-- Message Text -->
         <TextView
             android:id="@+id/yt_list_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:fontFamily="monospace"
             android:gravity="center"
             android:text="Our team is working hard to bring you this feature. Please check back later, and we’ll notify you once it’s available."
             android:textColor="#000000"
-            android:textSize="18sp"
-            android:layout_marginTop="24dp" />
+            android:textSize="18sp" />
 
-        <!-- ProgressBar to show that the app is under maintenance -->
         <ProgressBar
             android:id="@+id/maintenanceProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:visibility="visible"/>
+            android:visibility="visible" />
 
-        <!-- Rate Us link between ProgressBar and Message -->
         <TextView
             android:id="@+id/rate_us_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Love our app? Tap here to rate us!"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="16sp"
             android:layout_marginTop="24dp"
-            android:gravity="center"
             android:clickable="true"
             android:focusable="true"
-            /> <!-- Add onClick listener for Rate Us -->
+            android:gravity="center"
+            android:text="Love our app? Tap here to rate us!"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="16sp" />
 
     </LinearLayout>
 

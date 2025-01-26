@@ -1,7 +1,5 @@
 package com.dadash.sfcsnotes;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -9,36 +7,27 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.FirebaseFirestore;
-
 import org.checkerframework.checker.nullness.qual.NonNull;
-
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
-
-
 public class register extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firestore;
@@ -46,19 +35,14 @@ public class register extends AppCompatActivity {
     private Spinner classSpinner;
     private Button registerButton;
     private ProgressBar progressBar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        requestWindowFeature(Window.FEATURE_NO_TITLE); // Hide the title
-        getSupportActionBar().hide(); // Hide the action bar
-        
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_register);
-
         firebaseAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
-
         nameField = findViewById(R.id.Student_Name);
         emailField = findViewById(R.id.Student_Email_ID);
         phoneField = findViewById(R.id.Student_Phone_Number);
@@ -69,7 +53,6 @@ public class register extends AppCompatActivity {
         classSpinner = findViewById(R.id.Spinner_Class_Option);
         registerButton = findViewById(R.id.SignUp);
         progressBar = findViewById(R.id.progressBar);
-
         TextView existingUserHint = findViewById(R.id.existing_userHint);
         existingUserHint.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), login.class);
@@ -77,19 +60,15 @@ public class register extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
-
         registerButton.setOnClickListener(v -> registerUser());
     }
-
     private void registerUser() {
         if (!isNetworkAvailable()) {
             progressBar.setVisibility(View.GONE);
             Toast.makeText(this, "No internet connection. Please check your network and try again.", Toast.LENGTH_SHORT).show();
             return;
         }
-
         progressBar.setVisibility(View.VISIBLE);
-
         String name = nameField.getText().toString().trim();
         String email = emailField.getText().toString().trim().toLowerCase();
         String phone = phoneField.getText().toString().trim();
@@ -98,15 +77,11 @@ public class register extends AppCompatActivity {
         String schoolCode = schoolCodeField.getText().toString().trim();
         String admissionNumber = admissionNumberField.getText().toString().trim();
         String currentClass = classSpinner.getSelectedItem().toString();
-
-        // Validate inputs (existing function from your code)
         if (!validateInputs(name, email, phone, password, confirmPassword, schoolCode, admissionNumber, currentClass)) {
             progressBar.setVisibility(View.GONE);
             Toast.makeText(this, "Please fix the errors above and try again.", Toast.LENGTH_SHORT).show();
             return;
         }
-
-        // Check school codes
         firestore.document("Access Codes/For SFCS Meerut").get().addOnSuccessListener(document -> {
             if (document.exists()) {
                 List<String> validSchoolCodes = (List<String>) document.get("schoolCodes");
@@ -123,13 +98,10 @@ public class register extends AppCompatActivity {
             Toast.makeText(this, "Failed to validate school code. Try again later.", Toast.LENGTH_SHORT).show();
         });
     }
-
     private boolean validateInputs(String name, String email, String phone, String password, String confirmPassword, String schoolCode,
                                    String admissionNumber, String currentClass) {
-        // Add regex validations here
         String emailRegex = "^[a-zA-Z0-9._-]+@(gmail\\.com|outlook\\.com|yahoo\\.com|hotmail\\.com|icloud\\.com|aol\\.com|protonmail\\.com|zoho\\.com|gmx\\.com|yandex\\.com)$";
         String nameRegex = "^[a-zA-Z\\s]+$";
-
         if (name.isEmpty() || !name.matches(nameRegex)) {
             nameField.setError("Enter a your name");
             return false;
@@ -155,10 +127,6 @@ public class register extends AppCompatActivity {
             confirmPasswordField.setError("Passwords do not match");
             return false;
         }
-//        if (!validSchoolCodes.contains(schoolCode)) {
-//            schoolCodeField.setError("Invalid school code. Please try again.");
-//            return false;
-//        }
         if (schoolCode.isEmpty()) {
             schoolCodeField.setError("Please enter valid school code");
             return false;
@@ -169,52 +137,8 @@ public class register extends AppCompatActivity {
         }
         return true;
     }
-//    private List<String> validSchoolCodes = new ArrayList<>();
-//
-//    private void fetchSchoolCodes() {
-//        FirebaseFirestore db = FirebaseFirestore.getInstance();
-//        db.collection("Access code")
-//                .document("For SFCS meerut")
-//                .get()
-//                .addOnSuccessListener(documentSnapshot -> {
-//                    if (documentSnapshot.exists()) {
-//                        validSchoolCodes = (List<String>) documentSnapshot.get("schoolCodes");
-//                    }
-//                })
-//                .addOnFailureListener(e -> {
-//                    Toast.makeText(this, "Failed to fetch school codes", Toast.LENGTH_SHORT).show();
-//                });
-//    }
-
-
     private void createFirebaseUser(String name, String email, String password, String phone,
                                     String currentClass, String schoolCode, String admissionNumber) {
-//        firebaseAuth.createUserWithEmailAndPassword(email, password)
-//                .addOnCompleteListener(task -> {
-//                    if (task.isSuccessful()) {
-//                        FirebaseUser user = firebaseAuth.getCurrentUser();
-//                        saveUserDetails(user, name, email, phone, currentClass, schoolCode, admissionNumber, password);
-//                        collectDeviceInfo(user.getEmail());
-//
-//                        Toast.makeText(this, "Registration successful! Redirecting to the dashboard...", Toast.LENGTH_SHORT).show();
-//                        Intent intent = new Intent(getApplicationContext(), dashboard.class);
-//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                        startActivity(intent);
-//                    } else {
-//                        progressBar.setVisibility(View.GONE);
-//                        String errorMessage = task.getException().getMessage();
-//                        Log.d("register", "Registration Failed: " + errorMessage);
-//
-//                        if (task.getException() instanceof FirebaseAuthUserCollisionException) {
-//                            Toast.makeText(this, "User already registered. Please log in.", Toast.LENGTH_SHORT).show();
-//                            Intent intent = new Intent(getApplicationContext(), login.class);
-//                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                            startActivity(intent);
-//                        } else {
-//                            Toast.makeText(this, "Registration Failed: " + errorMessage, Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
@@ -231,46 +155,18 @@ public class register extends AppCompatActivity {
                         saveUserDetails(user, name, email, phone, currentClass, schoolCode, admissionNumber, password);
                         collectDeviceInfo(user.getEmail());
                         saveUserName(user,name);
-
-                        // Navigate to the dashboard
                         Intent intent = new Intent(getApplicationContext(), dashboard.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                         finish();
                     } else {
-                        Log.d("register", "Registration Failed: " + task.getException().getMessage());
                         Toast.makeText(this, "Registration Failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
-
-
-//    private void saveUserDetails(FirebaseUser user, String name, String email, String phone, String currentClass,
-//                                  String schoolCode, String admissionNumber, String password) {
-//
-//        HashMap<String, Object> userDetails = new HashMap<>();
-////        userDetails.put("User",user);
-//        userDetails.put("Name", name);
-//        userDetails.put("Email", email);
-//        userDetails.put("Phone", phone);
-//        userDetails.put("Class", currentClass);
-//        userDetails.put("Admission Number", admissionNumber);
-//        userDetails.put("Password",password);
-//        userDetails.put("Used School Code", schoolCode);
-//
-//        firestore.collection("User's Info").document(email).set(userDetails).addOnSuccessListener(aVoid -> {
-//            Toast.makeText(this, "User details saved successfully", Toast.LENGTH_SHORT).show();
-//        }).addOnFailureListener(e -> {
-//            Toast.makeText(this, "Failed to save user details", Toast.LENGTH_SHORT).show();
-//        });
-//    }
     private void saveUserDetails(FirebaseUser user, String name, String email, String phone, String currentClass,
                                  String schoolCode, String admissionNumber, String password) {
-
-        // Create a new HashMap to store user details
         HashMap<String, Object> userDetails = new HashMap<>();
-
-        // Add user details to the map
         userDetails.put("Name", name);
         userDetails.put("Email", email);
         userDetails.put("Phone", phone);
@@ -278,49 +174,31 @@ public class register extends AppCompatActivity {
         userDetails.put("Admission Number", admissionNumber);
         userDetails.put("Password", password);
         userDetails.put("Used School Code", schoolCode);
-
-        // Get the current date and time
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault());
         String currentDateTime = sdf.format(new Date());
-
-        // Add the registration date to the user details
         userDetails.put("Registration Date", currentDateTime);
-
-        // Save the user details to Firestore
         firestore.collection("User's Info").document(email).set(userDetails).addOnSuccessListener(aVoid -> {
             Toast.makeText(this, "User details saved successfully", Toast.LENGTH_SHORT).show();
         }).addOnFailureListener(e -> {
             Toast.makeText(this, "Failed to save user details", Toast.LENGTH_SHORT).show();
         });
     }
-
-
     private void collectDeviceInfo(String email) {
-        // Get hardware and model details
         String model = android.os.Build.MODEL;
         String brand = android.os.Build.BRAND;
         String manufacturer = android.os.Build.MANUFACTURER;
         String product = android.os.Build.PRODUCT;
         String device = android.os.Build.DEVICE;
-
-        // Get Android version
         String androidVersion = android.os.Build.VERSION.RELEASE;
-
-        // Unique device ID (Android ID)
         String androidId = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
-
-        // Get display information
         DisplayMetrics metrics = getResources().getDisplayMetrics();
         int widthPixels = metrics.widthPixels;
         int heightPixels = metrics.heightPixels;
         float density = metrics.density;
         int densityDpi = metrics.densityDpi;
-
-        // Get network information
         String connectionType = "No Connection";
         String networkType = "Unknown";
         String operatorName = "N/A";
-
         if (isNetworkAvailable()) {
             ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
             if (cm != null) {
@@ -331,15 +209,13 @@ public class register extends AppCompatActivity {
                         networkType = "Wi-Fi";
                     } else if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE) {
                         networkType = "Mobile Data";
-                        operatorName = activeNetwork.getExtraInfo(); // Get the operator name if available
+                        operatorName = activeNetwork.getExtraInfo();
                     }
                 }
             }
         }
-
-        // Prepare device info
         HashMap<String, Object> deviceInfo = new HashMap<>();
-        deviceInfo.put("Device ID (Android ID)", androidId); // Add Device ID
+        deviceInfo.put("Device ID (Android ID)", androidId);
         deviceInfo.put("Model", model);
         deviceInfo.put("Brand", brand);
         deviceInfo.put("Manufacturer", manufacturer);
@@ -351,10 +227,8 @@ public class register extends AppCompatActivity {
         deviceInfo.put("Screen Density", density);
         deviceInfo.put("Screen Density DPI", densityDpi);
         deviceInfo.put("Connection Type", connectionType);
-        deviceInfo.put("Network Type", networkType); // Add Network Type
+        deviceInfo.put("Network Type", networkType);
         deviceInfo.put("Network Operator Name", operatorName);
-
-        // Save to Firestore
         String uniqueId = UUID.randomUUID().toString();
         firestore.collection("User Device Info").document(email + "++" + uniqueId).set(deviceInfo)
                 .addOnSuccessListener(aVoid -> {
@@ -368,13 +242,11 @@ public class register extends AppCompatActivity {
         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                 .setDisplayName(name)
                 .build();
-
         user.updateProfile(profileUpdates)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Log.d("USERNAME", "User profile updated.");
                         }
                     }
                 });
@@ -387,12 +259,4 @@ public class register extends AppCompatActivity {
         }
         return false;
     }
-//    public void existingUser_from_register_page(View view){
-//        Intent intent = new Intent(getApplicationContext(), login.class);
-//        startActivity(intent);
-//        finish();
-//    }
 }
-
-
-

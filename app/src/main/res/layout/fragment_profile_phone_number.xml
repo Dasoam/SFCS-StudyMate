@@ -1,179 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".User_Profile.profile_phone_number">
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:text="Change Phone Number"
+                android:textColor="#0077FF"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="start"
+                android:text="Enter your new phone number and verify your password to update."
+                android:textColor="#878282"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="start"
+                android:text="New Phone Number *"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:boxBackgroundMode="none"
+                app:boxCollapsedPaddingTop="0dp"
+                app:boxStrokeWidth="0dp"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/new_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_background"
+                    android:inputType="textEmailAddress"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="18dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="start"
+                android:text="Password *"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:boxBackgroundMode="none"
+                app:boxCollapsedPaddingTop="0dp"
+                app:boxStrokeWidth="0dp"
+                app:hintEnabled="false"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/CustomButtonColor">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_background"
+                    android:inputType="textPassword"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="18dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/countdownTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:text="Time left: "
+                android:textColor="#FF0000"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/confirm_phone_change_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_margin="24dp"
+                android:backgroundTint="@color/CustomButtonColor"
+                android:fontFamily="@font/poppins"
+                android:padding="16dp"
+                android:text="Confirm"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <ProgressBar
+        android:id="@+id/ChangePhone_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:padding="24dp">
-
-        <!-- Title -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:fontFamily="monospace"
-            android:gravity="center"
-            android:text="Change Phone Number"
-            android:textColor="#0077FF"
-            android:textSize="26sp"
-            android:textStyle="bold" />
-
-        <!-- Subtitle -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:fontFamily="@font/poppins"
-            android:textStyle="bold"
-            android:gravity="start"
-            android:text="Enter your new phone number and verify your password to update."
-            android:textColor="#878282"
-            android:textSize="16sp" />
-
-        <!-- New Email Title -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginBottom="8dp"
-            android:gravity="start"
-            android:fontFamily="@font/poppins"
-            android:text="New Phone Number *"
-            android:textColor="#000000"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <!-- New Email Field -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:boxBackgroundMode="none"
-            app:boxCollapsedPaddingTop="0dp"
-            app:boxStrokeWidth="0dp"
-            app:hintEnabled="false">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/new_phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="18dp"
-                android:background="@drawable/edittext_background"
-                android:inputType="textEmailAddress" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Password Title -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginBottom="8dp"
-            android:gravity="start"
-            android:text="Password *"
-            android:fontFamily="@font/poppins"
-            android:textColor="#000000"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <!-- Password Field -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:boxBackgroundMode="none"
-            app:boxCollapsedPaddingTop="0dp"
-            app:boxStrokeWidth="0dp"
-            app:hintEnabled="false"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/CustomButtonColor">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="18dp"
-                android:background="@drawable/edittext_background"
-                android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-<!--        &lt;!&ndash; Warning Text &ndash;&gt;-->
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="16dp"-->
-<!--            android:fontFamily="@font/poppins"-->
-<!--            android:gravity="center"-->
-<!--            android:text="Please note: You can only change your email address once. Make sure it is correct before proceeding."-->
-<!--            android:textColor="#FF0000"-->
-<!--            android:textSize="14sp"-->
-<!--            android:textStyle="italic" />-->
-
-        <!-- Countdown Timer -->
-        <TextView
-            android:id="@+id/countdownTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:fontFamily="@font/poppins"
-            android:textColor="#FF0000"
-            android:textSize="16sp"
-            android:text="Time left: "
-            android:visibility="gone" />
-
-<!--        &lt;!&ndash; Resend Button &ndash;&gt;-->
-<!--        <Button-->
-<!--            android:id="@+id/resend_email_button"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="bottom|center_horizontal"-->
-<!--            android:layout_margin="12dp"-->
-<!--            android:backgroundTint="@color/CustomButtonColor"-->
-<!--            android:fontFamily="@font/poppins"-->
-<!--            android:padding="16dp"-->
-<!--            android:text="Resend Verification Email"-->
-<!--            android:textColor="#FFFFFF"-->
-<!--            android:visibility="gone" />-->
-
-        <!-- Confirm Button -->
-        <Button
-            android:id="@+id/confirm_phone_change_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:layout_margin="24dp"
-            android:backgroundTint="@color/CustomButtonColor"
-            android:fontFamily="@font/poppins"
-            android:padding="16dp"
-            android:text="Confirm"
-            android:textColor="#FFFFFF" />
-
-    </LinearLayout>
-</ScrollView>
-
-<!-- ProgressBar -->
-<ProgressBar
-    android:id="@+id/ChangePhone_progressBar"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="16dp"
-    android:indeterminate="true"
-    android:visibility="gone"
-    android:layout_gravity="center" />
+        android:layout_margin="16dp"
+        android:indeterminate="true"
+        android:visibility="gone" />
 
 </FrameLayout>

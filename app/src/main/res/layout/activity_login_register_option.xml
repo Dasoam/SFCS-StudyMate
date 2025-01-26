@@ -85,7 +85,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!-- First part of the text -->
+       
         <TextView
             android:id="@+id/login_register_help_text"
             android:layout_width="wrap_content"
@@ -96,7 +96,6 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <!-- Second part of the text -->
         <TextView
             android:id="@+id/login_register_click_here"
             android:layout_width="wrap_content"

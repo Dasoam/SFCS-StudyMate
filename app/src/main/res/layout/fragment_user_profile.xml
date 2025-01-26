@@ -12,29 +12,25 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <!-- Profile Section -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="1dp"
             android:layout_marginTop="0dp"
+            android:layout_marginBottom="1dp"
             android:background="@drawable/relative_layout_bg"
             android:elevation="4dp"
             android:padding="20dp">
 
-            <!-- Profile Avatar -->
             <ImageView
                 android:id="@+id/profile_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/profile_picture_bg"
                 android:contentDescription="Profile Picture"
-                android:scaleType="centerCrop"
-                android:layout_marginTop="15dp"
-                />
+                android:scaleType="centerCrop" />
 
-            <!-- Pencil Icon for Editing -->
             <ImageView
                 android:id="@+id/edit_profile"
                 android:layout_width="25dp"
@@ -46,7 +42,7 @@
                 android:padding="4dp"
                 android:src="@drawable/option_edit" />
 
-            <!-- Profile Name with Verify Icon Group -->
+
             <LinearLayout
                 android:id="@+id/profile_name_and_tick"
                 android:layout_width="wrap_content"
@@ -56,28 +52,28 @@
                 android:layout_marginTop="8dp"
                 android:orientation="horizontal">
 
-                <!-- Profile Name -->
+
                 <TextView
                     android:id="@+id/profile_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
                     android:text="User Name"
-                    android:textStyle="bold"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-                <!-- Verify Icon -->
+
                 <ImageView
                     android:id="@+id/verify_icon"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:visibility="gone"
                     android:layout_marginStart="4dp"
                     android:contentDescription="Verified"
-                    android:src="@drawable/verifyed_account" />
+                    android:src="@drawable/verifyed_account"
+                    android:visibility="gone" />
             </LinearLayout>
 
-            <!-- Email -->
+
             <TextView
                 android:id="@+id/profile_email"
                 android:layout_width="wrap_content"
@@ -93,15 +89,13 @@
         </RelativeLayout>
 
 
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Account Settings -->
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -253,7 +247,7 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <!-- Explore More -->
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -351,7 +345,7 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <!-- Support -->
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -422,7 +416,7 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <!-- Account Management -->
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -492,25 +486,25 @@
                     android:textColor="@color/black"
                     android:textSize="14sp" />
             </LinearLayout>
-            <!-- Logout Button -->
+
             <Button
                 android:id="@+id/logout_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="LOGOUT"
-                android:textColor="@color/white"
-                android:backgroundTint="@color/logoutButtonColor"
                 android:layout_marginTop="16dp"
-                android:elevation="4dp" />
+                android:backgroundTint="@color/logoutButtonColor"
+                android:elevation="4dp"
+                android:text="LOGOUT"
+                android:textColor="@color/white" />
         </LinearLayout>
+
         <TextView
             android:id="@+id/version_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
             android:fontFamily="@font/poppins"
-            android:text="Version: 26.1.25.1"
-            />
+            android:gravity="center"
+            android:text="Version: 26.1.25.1" />
     </LinearLayout>
 </ScrollView>

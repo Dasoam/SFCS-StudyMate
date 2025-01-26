@@ -7,7 +7,6 @@
     android:background="@color/white"
     tools:context=".dashboard_fragment">
 
-    <!-- Grid Layout container -->
     <GridLayout
         android:id="@+id/dashboard_grid"
         android:layout_width="0dp"
@@ -20,7 +19,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <!-- Card 1: Previous Year Question Papers -->
         <androidx.cardview.widget.CardView
             android:id="@+id/pyq_cardview"
             android:layout_width="0dp"
@@ -42,8 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-
-                    android:src="@drawable/pyq_icon" />
+                    android:src="@drawable/dashboard_pyq_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -62,7 +59,6 @@
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Card 2: Videos -->
         <androidx.cardview.widget.CardView
             android:id="@+id/videos_cardview"
             android:layout_width="0dp"
@@ -84,7 +80,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/playlist_icon" />
+                    android:src="@drawable/dashboard_playlist_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"

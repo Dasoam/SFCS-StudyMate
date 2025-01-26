@@ -21,7 +21,7 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/sample_ad"/>
+            android:value="@string/AdMob_app_ID"/>
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/sfcs_logo" />
@@ -37,15 +37,6 @@
             android:exported="false" />
         <activity
             android:name=".Server_Permission"
-            android:exported="false" />
-        <activity
-            android:name=".PYQs.unit_test_I"
-            android:exported="false" />
-        <activity
-            android:name=".PYQs.pyq_list"
-            android:exported="false" />
-        <activity
-            android:name=".user_profile"
             android:exported="false" />
         <activity
             android:name=".dashboard"

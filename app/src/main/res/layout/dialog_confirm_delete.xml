@@ -23,7 +23,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/edittext_background"
         android:hint="Password"
-        android:drawableStart="@drawable/password_lock"
+        android:drawableStart="@drawable/register_password_lock"
         android:inputType="textPassword"
         android:paddingHorizontal="10dp"
         android:drawablePadding="10dp"

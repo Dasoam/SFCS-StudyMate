@@ -10,10 +10,9 @@
     <ImageView
         android:id="@+id/profile_id_view"
         android:layout_width="match_parent"
-        android:layout_margin="10dp"
         android:layout_height="match_parent"
-        android:scaleType="matrix"
         android:layout_centerInParent="true"
+        android:layout_margin="10dp"
         android:contentDescription="view_uploaded_id_card"
-        />
+        android:scaleType="matrix" />
 </RelativeLayout>

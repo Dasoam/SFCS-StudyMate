@@ -1,45 +1,28 @@
 package com.dadash.sfcsnotes;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
-
 import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.io.File;
-
 public class clearUserData {
-
     public static void clearDefaultData(Context context) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        // Clear all data (remove all keys and values)
         editor.clear();
-
-        // Apply the changes asynchronously
         editor.apply();
     }
     public static void clearCustomData(Context context, String prefsName) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(prefsName, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        // Clear all data (remove all keys and values)
         editor.clear();
-
-        // Apply the changes asynchronously
         editor.apply();
     }
     public static void clearAllData(Context context) {
-        // Clear default shared preferences
         SharedPreferences defaultPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor defaultEditor = defaultPrefs.edit();
         defaultEditor.clear();
         defaultEditor.apply();
-
-        // Clear custom shared preferences (if any)
-        String[] prefsNames = {"UserProfilePrefs", "OtherPrefs"}; // Add any custom preference files here
+        String[] prefsNames = {"UserProfilePrefs", "OtherPrefs"};
         for (String prefsName : prefsNames) {
             SharedPreferences customPrefs = context.getSharedPreferences(prefsName, Context.MODE_PRIVATE);
             SharedPreferences.Editor customEditor = customPrefs.edit();
@@ -51,9 +34,7 @@ public class clearUserData {
         firestore.clearPersistence()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        Log.d("CLEARCACHE", "Firestore cache cleared.");
                     } else {
-                        Log.e("CLEARCACHE", "Failed to clear Firestore cache.", task.getException());
                     }
                 });
     }
@@ -65,7 +46,4 @@ public class clearUserData {
             }
         }
     }
-
-
 }
-
