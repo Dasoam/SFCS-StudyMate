@@ -20,15 +20,9 @@
         <item>9th</item>
         <item>10th</item>
     </string-array>
-<<<<<<< HEAD
     <string name="AdMob_app_ID">  </string>
     <string name="pyq_banner"></string>
     <string name="pyq_Interstitial"></string>
-=======
-
-
-
->>>>>>> b75ce736f82757c21032afb0bc0bff9087861925
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="default_notification_channel_id"></string>
 </resources>

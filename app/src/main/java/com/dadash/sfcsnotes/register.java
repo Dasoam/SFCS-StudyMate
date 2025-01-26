@@ -178,9 +178,7 @@ public class register extends AppCompatActivity {
         String currentDateTime = sdf.format(new Date());
         userDetails.put("Registration Date", currentDateTime);
         firestore.collection("User's Info").document(email).set(userDetails).addOnSuccessListener(aVoid -> {
-            Toast.makeText(this, "User details saved successfully", Toast.LENGTH_SHORT).show();
         }).addOnFailureListener(e -> {
-            Toast.makeText(this, "Failed to save user details", Toast.LENGTH_SHORT).show();
         });
     }
     private void collectDeviceInfo(String email) {
@@ -232,10 +230,8 @@ public class register extends AppCompatActivity {
         String uniqueId = UUID.randomUUID().toString();
         firestore.collection("User Device Info").document(email + "++" + uniqueId).set(deviceInfo)
                 .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(this, "Device info saved successfully", Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(this, "Failed to save device info", Toast.LENGTH_SHORT).show();
                 });
     }
     private void saveUserName(FirebaseUser user, String name) {

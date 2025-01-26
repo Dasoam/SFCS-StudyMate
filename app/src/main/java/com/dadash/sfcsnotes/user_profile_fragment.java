@@ -51,6 +51,7 @@ public class user_profile_fragment extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
         setUserProfile(rootView);
+
         if (checkEmailVerification()) {
             rootView.findViewById(R.id.option_verify_account).setVisibility(View.GONE);
         }
@@ -147,9 +148,6 @@ public class user_profile_fragment extends Fragment {
         profilePic = rootView.findViewById(R.id.profile_image);
         String cachedUserName = getCachedUserName();
         String cachedUserEmail = getCachedUserEmail();
-        if (cachedUserEmail != null) {
-        } else {
-        }
         String UserName = cachedUserName != null ? cachedUserName : firebaseAuth.getCurrentUser().getDisplayName();
         String UserEmail = cachedUserEmail != null ? cachedUserEmail : firebaseAuth.getCurrentUser().getEmail();
         if (TextUtils.isEmpty(UserName)) {
@@ -172,8 +170,21 @@ public class user_profile_fragment extends Fragment {
             userEmail.setText("No Email Found");
             profilePic.setImageResource(R.drawable.profile_pic_default);
         }
-        if (firebaseAuth.getCurrentUser() != null && firebaseAuth.getCurrentUser().isEmailVerified()) {
-            verifyIcon.setVisibility(View.VISIBLE);
+        if (firebaseAuth.getCurrentUser() != null) {
+            firebaseAuth.getCurrentUser().reload().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    if (firebaseAuth.getCurrentUser().isEmailVerified()) {
+                        verifyIcon.setVisibility(View.VISIBLE);
+                        rootView.findViewById(R.id.option_verify_account).setVisibility(View.GONE);
+                    } else {
+                        verifyIcon.setVisibility(View.GONE);
+                        rootView.findViewById(R.id.option_verify_account).setVisibility(View.VISIBLE);
+                    }
+                }
+            });
+        } else {
+            verifyIcon.setVisibility(View.GONE);
+            rootView.findViewById(R.id.option_verify_account).setVisibility(View.VISIBLE);
         }
     }
     private void fetchProfileFromFirestore(String userEmail, String userName) {
@@ -367,7 +378,12 @@ public class user_profile_fragment extends Fragment {
                 .commit();
     }
     private boolean checkEmailVerification() {
-        return firebaseAuth.getCurrentUser().isEmailVerified();
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        if (user != null) {
+            user.reload(); // Refresh user state to get updated email verification status
+            return user.isEmailVerified();
+        }
+        return false;
     }
     private void openExternalLink(String url){
         Uri uri = Uri.parse(url);

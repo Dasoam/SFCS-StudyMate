@@ -11,8 +11,8 @@ android {
         applicationId = "com.dadash.sfcsnotes"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "26.1.25.1"
+        versionCode = 2
+        versionName = "26.1.25.1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -20,6 +20,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
+            isDebuggable = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
