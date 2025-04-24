@@ -49,7 +49,7 @@ Whether you need access to course materials, updates on assignments, or just wan
 ## Screenshots
 
 ![App Screenshot 1](https://play-lh.googleusercontent.com/Bgy1U-VTMBSI90_TR_geNirT1n6vPjfbyIHL04algFyRhIilU2MYK9vmeg4tse66pTxV=w5120-h2880-rw)
-![App Screenshot 2]([path-to-screenshot2.jpg](https://play-lh.googleusercontent.com/4qfaSNriwXMe8br8qxGJAy8eKLetBkl023QbMWENlRO7DUKtu-0JMnsGTE5X_ZNNLA=w5120-h2880-rw)
+![App Screenshot 2](https://play-lh.googleusercontent.com/4qfaSNriwXMe8br8qxGJAy8eKLetBkl023QbMWENlRO7DUKtu-0JMnsGTE5X_ZNNLA=w5120-h2880-rw)
 
 ## Contributing
 
