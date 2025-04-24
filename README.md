@@ -61,9 +61,10 @@ If you want to contribute to SFCS StudyMate, please follow these steps:
 4. Push to the branch (`git push origin feature/your-feature`).
 5. Open a pull request.
 
-## License
+## Usage Restrictions
 
-SFCS StudyMate is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This repository is provided for viewing purposes only.
+All rights reserved. You may not use, copy, modify, or distribute any part of this code without explicit permission from the author.
 
 ## Contact
 
